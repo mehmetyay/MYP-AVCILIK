@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    <!-- iconları online olduğu zaman kullanabiliriz -->
+    <title>MYP AVCILIK</title>
+    
+<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <!-- header bölümü başlangıcı -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="logo ve resimler/myp avcılık logo.jpeg" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <a href="indexavcı.html" class="active">Ana Sayfa</a>
+            <a href="hakkımızda.html" >Hakkımızda</a>
+            <div class="dropdown">
+                <button class="dropbtn">Katagoriler</button>
+                <div class="dropdown-content">
+                    <a href="Av Bıçakları.html" target="_blank">Av Bıçakları</a>
+                    <a href="Aksesuarlar.html" target="_blank">Aksesuarlar</a>
+                    <a href="Tabancalar.html" target="_blank">Tabancalar</a>
+                    <a href="Eldivenler.html" target="_blank">Eldivenler</a>
+                    <a href="Çantalar.html" target="_blank">Çantalar</a>
+                    <a href="Dürbünler.html" target="_blank">Dürbünler</a>
+                    <a href="Av Tüfekleri.html" target="_blank">Av Tüfekleri</a>
+                </div>
+            </div>
+            
+            <a href="inceleme.html" >İnceleme</a>
+            <a href="iletişim.html" >İletişim</a>
+            <a href="bloglar.html" >Bloglar</a>
+        </nav>
+
+        <div class="buttons">
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>  <!-- arama iconu -->
+            </button>
+
+            <button id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>   <!-- market iconu -->
+            </button>
+
+            <button id="menu-btn">
+                <i class="fa-solid fa-bars"></i>     <!-- bar iconu -->
+            </button>
+            <button id="user-btn">
+                <i class="fa-solid fa-credit-card"></i>
+            </button>
+        </div>
+
+        <div class="search-form">
+            <input type="text" class="arama-girişi" id="search-box" placeholder="Ürünü Ara">
+            <i class="fa-solid fa-magnifying-glass"> </i>
+        </div>
+        <div class="cart-items-container">  <!-- sepet içerkleri -->
+            <div class="cart-item">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+                <button id="checkout-btn" style="display: none;" class="btn">Ödemeye Geç</button>
+            </div>
+            <div id="sepet-container">
+                <!-- Sepetteki ürünler burada gösterilecek -->
+            </div>
+            <input type="hidden" id="sepet-verisi" name="sepet" value="">
+            
+
+    </header>
+    <!-- header bölümü bitişi -->
+
+    <!-- Anasayfa bölümü başlangıcı -->
+     <section class="anasayfa" id="anasayfa">
+        <div class="content">
+            
+            <div id="videodur">
+       
+              <video autoplay loop muted>
+                <source src="logo ve resimler/anasayfavid.mp4" type="video/mp4">
+              </video>
+             
+
+            </div>
+        </div>
+     </section>
+
+     <!-- Anasayfa bölümü bitişi -->
+
+     <!-- Menü bölümü başlangıcı -->
+      <section class="menu" id="menu">
+        <h1 class="heading">Bazı <span>Ürünler</span></h1>
+        <div class="box-container"> <!-- Her bir menü bir kutu(box) olacak -->                          
+            <div class="box">
+                <div class="box-head">
+                    <img src="avcılıkürün/Dürbünler/shopping (1).jpg" alt="ürünler" >
+                    <span class="ürünler-kategori">DÜRBÜN</span>
+                    <h3>KOMPAKT YEŞİL KAMUFLAJ DÜRBÜNÜ</h3>
+                    <div class="fiyat">8.999₺ <span>11.999₺</span></div>
+                    </div>
+                    <div class="product-btn">  
+                        <a href="#" class="btn" onclick="urunEkle('cs1', 'KOMPAKT YEŞİL KAMUFLAJ DÜRBÜNÜ', 8.999)">Sepete Ekle
+                        </a>                   
+                    </div>
+                    </div>
+
+
+            <div class="box">
+                <div class="box-head">
+                    <a href="linktarget.html"><img src="avcılıkürün/Tabanca/8de8d418-5cce-42e0-e020-ef527473f200.jpg" alt="ürünler" >
+                    <span class="ürünler-kategori">Tabanca</span>
+                    <h3>SAR9 GEN2 <br>
+                        Sarsılmaz, yarı otomatik tabanca
+                    </h3>
+                    <div class="fiyat">34.999₺ <span>45.500₺</span></div>
+                    </div>
+                    <div class="product-btn">  
+                        <a href="#" class="btn" onclick="urunEkle('cs1', 'SAR9 GEN2', 34.999)">Sepete Ekle
+                        </a>           
+                    </div>
+                    </div>
+
+
+                    <div class="box">
+                        <div class="box-head">
+                            <img src="avcılıkürün/av tüfekleri/zeon-black.jpg" alt="ürünler" >
+                            <span class="ürünler-kategori">Tüfek </span>
+                            <h3>Huğlu Effecto Zeon PCP Havalı Tüfek<br>
+                                Alman LW namlu </h3>
+                            <div class="fiyat">12.999₺ <span>15.350₺</span></div>
+                            </div>
+                            <div class="product-btn">  
+                                <a href="#" class="btn" onclick="urunEkle('cs1', 'Huğlu Effecto Zeon PCP Havalı Tüfek', 12.999)">Sepete Ekle
+                                </a>                  
+                            </div>
+                            </div>
+
+
+                            <div class="box">
+                                <div class="box-head">
+                                    <img src="logo ve resimler/eldiven.png" alt="ürünler" >
+                                    <span class="ürünler-kategori">Eldiven</span>
+                                    <h3>Askeri Taktik Destekli Eldiven</h3>
+                                    <div class="fiyat">1450₺ <span>2500₺</span></div>
+                            </div>
+                             <div class="product-btn">  <!-- Menülerdeki buttonlar için -->  
+                                <a href="#" class="btn" onclick="urunEkle('cs1', 'Askeri Taktik Destekli Eldiven', 1450)">Sepete Ekle
+                                </a>
+                             </div>
+
+                                
+                            </div>
+        </div>     
+        </div>
+    
+      </section>
+
+      <!-- Menü bölümü bitişi -->
+
+
+      <!-- Ürünler bölümü başlangıcı -->
+       <section class="ürünler" id="ürünler">
+        <h1 class="heading">Bizim <span>Ürünlerimiz</span></h1>
+        <div class="box-container">
+            
+            <div class="box">
+            <div class="box-head">
+                <span class="tittle">Av Tüfeği</span>
+                <a href="#" class="isim">ovis-b-08 </a>
+            </div>
+            <div class="image">
+                <img src="avcılıkürün/av tüfekleri/ovis-b-08-laminated-blue.jpg" alt="" />
+                
+            </div>
+            <div class="box-bottom">
+                <div class="info">
+                    <b class="fiyat">49.999₺</b>
+                    <span class="amount">laminated-blue</span>
+                </div>
+                <div class="product-btn">
+                    <a href="#" onclick="urunEkle('ca1', 'ovis-b-08', 49.999)">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+            </div>
+            
+           
+
+            <div class="box">
+                <div class="box-head">
+                    <span class="tittle">Gece Görüş Dürbünü</span>
+                    <a href="#" class="isim">Nasoalne Gece Görüş Dürbünü  </a>
+                </div>
+                <div class="image">
+                    <img src="avcılıkürün/Dürbünler/61Iutpmh2bL._AC_SX679_.jpg" alt="" />
+                    
+                </div>
+                <div class="box-bottom">
+                    <div class="info">
+                        <b class="fiyat">6299₺</b>
+                        <span class="amount">%100 Karanlıkta Görüntüleme</span>
+                    </div>
+                    <div class="product-btn">
+                        <a href="#" onclick="urunEkle('cd1', 'Gece Görüş Dürbünü', 6299)">
+                            <i class="fa-solid fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+              
+               
+
+                <div class="box dark-bg">
+                    <div class="box-head">
+                        <span class="tittle">Av Bıçağı</span>
+                        <a href="#" class="isim">Verd Hançer </a>
+                    </div>
+                    <div class="image">
+                        <img src="logo ve resimler/bıçak.png" alt="" />
+                        
+                    </div>
+                    <div class="box-bottom">
+                        <div class="info">
+                            <b class="fiyat">499₺</b>
+                            <span class="amount">Epoxy özel seri</span>
+                        </div>
+                        <div class="product-btn">
+                            <a href="#" onclick="urunEkle('cs1', 'Verd Hançer', 499)">
+                                <i class="fa-solid fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                   </div>
+        
+                    
+            
+    
+        </div>
+       </section>
+
+
+
+
+       <!-- Ürünler bölümü bitişi -->
+
+       <!-- Hakkımızda bölümü başlangıcı -->
+
+       <section class="hakkımızda" id="hakkımızda">
+        <h1 class="heading">Bizim <span>Hakkımızda</span></h1>
+        <div class="row">
+            <div class="resim">
+                <img src="logo ve resimler/hakkımızda.png" alt="Hakkımızda">
+            </div>
+            <div class="content">
+                <h3>MYP Avcılık Sistemleri</h3>
+                <p>MYP Avcılık Sistemleri olarak, av tutkusunu profesyonel ekipmanlarla buluşturan öncü bir firmayız.<br>
+                    Doğaya duyduğumuz saygı ve avcılık sporuna olan bağlılığımızla, avcıların ihtiyaç duyduğu tüm malzemeleri en kaliteli ve güvenilir şekilde sunmayı hedefliyoruz.<br>
+                     Geniş ürün yelpazemizle hem amatör hem de profesyonel avcılara hitap ediyor, onların av deneyimlerini en üst seviyeye çıkarmak için çalışıyoruz.<br>
+                </p>
+                <p>Firmamız, sadece ürün satışı değil, aynı zamanda avcılık kültürüne yönelik rehberlik ve eğitim hizmetleri de sunarak, doğaya uyumlu ve sorumlu avcılığı destekliyor.<br>
+                     Uzman kadromuzla, her adımda müşterilerimizin yanındayız.</p>
+                     <p>MYP Avcılık Sistemleri ile doğaya adım attığınız her an, güvenli, donanımlı ve keyifli bir av macerasına hazır olun!</p>
+                    <a href="#" class="btn">Daha Fazla</a>
+
+            </div>
+
+        </div>
+
+
+
+
+       </section>
+        <!-- Hakkımızda bölümü bitişi -->
+
+        <!-- Muşteri Yotumları bölümü başlangıcı -->
+         <section class="yorum" id="yorum">
+         <h1 class="heading">Müşteri <span>Yorumları</span></h1>
+         <div class="box-container">
+            <div class="box">
+                <img src="logo ve resimler/alıntı.png" alt="Alıntı" class="çifttırnak">
+                <p>Myp Avcılık, tüm av malzemelerimi güvenle satın aldığım bir platform! Ürün çeşitliliği ve kalitesi gerçekten mükemmel.<br>
+                     Siparişlerim her zaman hızlı bir şekilde elime ulaşıyor.<br>
+                      Ayrıca müşteri hizmetleri çok ilgili ve yardımcı. Tavsiye ederim!</p>
+                      <img src="logo ve resimler/pp (1).png" alt="profil" class="kullanıcı">
+                      <h3>Şahin İpek</h3>
+                      <div class="yıldızlar">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            </div>
+
+            <div class="box">
+                <img src="logo ve resimler/alıntı.png" alt="Alıntı" class="çifttırnak">
+                <p>Kaliteli av ekipmanları arıyorsanız Myp Avcılık tam adresi! Hem uygun fiyatlar sunuyorlar hem de stokta olmayan ürünler için bile alternatif çözümler buluyorlar.<br>
+                     Site üzerinden yaptığım alışverişlerde her zaman memnun kaldım</p>
+                      <img src="logo ve resimler/pp (2).png" alt="profil" class="kullanıcı">
+                      <h3>Kerem Türkoğlu</h3>
+                      <div class="yıldızlar">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            </div>
+
+
+            <div class="box">
+                <img src="logo ve resimler/alıntı.png" alt="Alıntı" class="çifttırnak">
+                <p>Myp Avcılık sitesi av tutkunları için harika bir kaynak! Sitede bulamadığım bir ürün neredeyse yok.<br>
+                     Ürün açıklamaları detaylı ve bilgilendirici, bu sayede doğru seçimler yapabiliyorum.<br>
+                      Ayrıca kargo hızı gerçekten etkileyici. Mutlaka göz atmalısınız!</p>
+                      <img src="logo ve resimler/pp (3).png" alt="profil" class="kullanıcı">
+                      <h3>Kenan Çevik</h3>
+                      <div class="yıldızlar">
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star"></i>
+                      <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            </div>
+
+
+
+         </div>
+
+        </section>
+
+
+
+
+         <!-- Muşteri Yotumları bölümü bitişi -->
+
+         <!-- İletişim bölümü başlangıcı -->
+          <section class="iletişim" id="iletişim">
+            <h1 class="heading">Bize <span>Ulaşın</span></h1>
+            <div class="row">
+                <iframe class="harita" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.028183505759!2d39.7719711764297!3d38.2556523843136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074488c4cd6245f%3A0xbd278c96c84bb294!2sDicle%20%C3%9Cniversitesi%20Ergani%20Meslek%20Y%C3%BCksekokulu!5e0!3m2!1str!2str!4v1729022324477!5m2!1str!2str"
+                   loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+                  <form>
+                    <h3>İletişime Geç</h3>
+                    <div class="inputBox">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="metin" placeholder="isim">
+                    </div>
+
+                    <div class="inputBox">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="E-Mail">
+                    </div>
+
+                    <div class="inputBox">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="sayı" placeholder="Telefon No">
+                    </div>
+                    <input type="submit" class="btn" value="Şimdi İletişime Geç">
+                  </form>
+                </div>
+
+
+
+
+          </section>
+
+
+
+          <!-- İletişim bölümü bitişi -->
+
+           <!-- bloglar bölümü başlangıcı -->
+            <section class="bloglar" id="bloglar">
+                <h1 class="heading">Bizim <span>Bloğumuz</span></h1>
+                <div class="box-container">
+                    <div class="box">
+                        <div class="image">
+                            <img src="avcılıkürün/Tabanca/sss.jpg" alt="blog">
+                        </div>
+                        <div class="content">
+                            <a href="#" class="tittle">SR 38 “6inch” özellikleri</a>
+                            <span>Admin / 16 ekim, 2024</span>
+                            <p>Efsane toplu tabanca SR 38, alaşımlı dövme çelik gövde, namlu ve silindirden oluşan yapısıyla klasiğin estetiğini yeniliğin şıklığıyla sunuyor.<br>
+                                 Ayarlanabilir gez ile rahat ve güvenilir bir kullanım sunan SR 38, .357 Magnum ve .38 Special mermiyle kullanılabiliyor.</p> 
+                                 <a href="blog1.html" class="btn">Devamını Oku</a>
+                        </div>
+                      
+                        
+                    </div>
+
+                    <div class="box">
+                        <div class="image">
+                            <img src="avcılıkürün/çanta/bbb.jpg" alt="blog">
+                        </div>
+                        <div class="content">
+                            <a href="blog2.html" class="tittle">Avcı sırt çantasının önemi</a>
+                            <span>Admin / 16 ekim, 2024</span>
+                            <p>【MALZEME】Naylon+ metal; 【BOYUT】32 cm (U)*50 cm (Y) *16 cm (G); 【AĞIRLIK】0,67 KG.
+                                【TASARIM】 Ultra hafif, ultra dayanıklı, ultra harika günlük çanta.<br>
+                                 Yürüyüş, ara sıra seyahat, günlük kullanım, plaj aksesuarları, bavul alternatifi, kamera bölmesi, kamp ve daha fazlası için mükemmel ve herkes için harika bir hediye.
+                                ✜【DAYANIKLI】 Yırtılma ve suya dayanıklı 420D naylon kumaştan yapılmıştır. 
+                               </p>
+                                 <a href="blog2.html" class="btn">Devamını Oku</a>
+                        </div>
+                      
+                        
+                    </div>
+
+                    <div class="box">
+                        <div class="image">
+                            <img src="avcılıkürün/av tüfekleri/7a3f95fc-653e-4bfa-b9d5-d83852741180 (1).jpeg" alt="blog">
+                        </div>
+                        <div class="content">
+                            <a href="#" class="tittle">OVIS B 08 özelikleri nedir?</a>
+                            <span>Admin / 16 ekim, 2024</span>
+                            <p>KALİBRE	.308 Win. (7,62x51mm NATO)
+                                NAMLU BOYU	66 cm
+                                TWIST ORANI	1:12 INCH
+                                YİV-SET	4 YİV-SET
+                                TETİK TİPİ	AYARLANABİLİR TETİK BOYU ve TETİK AĞIRLIĞI (600 - 2.000 GR)
+                                KUNDAK	TÜRK CEVİZİ
+                                DİPÇİK TABANI	İLERİ-GERİ, YUKARI-AŞAĞI AYARLANABİLİR
+                                MEKANİZMA	BOLT ACTION - 6 NOKTADAN KİLİTLEME
+                                ŞARJÖR KAPASİTESİ	3+1
+                                MENZİL	1.200 M
+                                TOPLAM UZUNLUK	126 CM
+                                AĞIRLIK	4.500 ± 100 GR
+                                ÇANTA İÇERİĞİ	OVIS B 08 YİVLİ AV TÜFEĞİ
+                                2 ADET ŞARJÖR
+                                TEMİZLİK VE BAKIM KİTİ
+                                ÇATAL AYAK (BIPOD)
+                                MONOPOD
+                                DÜRBÜN AYAĞI (20 MOA)
+                                ALLEN ANAHTAR
+                                DİPÇİK ASANSÖRÜ AYAR PULLARI
+                                ASKI KAYIŞI</p>
+                                 <a href="blog3.html" class="btn">Devamını Oku</a>
+                        </div>
+                      
+                        
+                    </div>
+                    
+                </div>
+                
+            </section>
+
+
+
+            <!-- bloglar bölümü bitişi -->
+
+            <!-- altbilgi bölümü başlangıcı -->
+             <section class="altbilgi">
+                <div class="arama">
+                    <input type="text" class="arama-girişi" placeholder="Arama">
+                    <button class="btn btn-birincil">Arama</button>
+                </div>
+                <div class="sosyal-medya">
+                    <a href="https://facebook.com/furkanakdal" target="_blank" class="fa-brands fa-facebook"></a>
+                    <a href="https://twitter.com/mypavcilik" target="_blank" class="fa-brands fa-twitter"></a>
+                    <a href="https://www.instagram.com/mypavcilik/" target="_blank" class="fa-brands fa-instagram"></a>
+                    <a href="https://www.linkedin.com/in/myp-avcilik-59b925334/" target="_blank" class="fa-brands fa-linkedin"></a>
+                    <a href="https://tr.pinterest.com/mypavcilik/" target="_blank" class="fa-brands fa-pinterest"></a>
+                </div>
+
+                <div class="linkler">
+                    <a href="indexavcı.html" class="active">Ana Sayfa</a>
+                <a href="hakkımızda.html" >Hakkımızda</a>
+                <a href="menu.html" >Menü</a>
+                <a href="ürünler.html" >Ürünler</a>
+                <a href="inceleme.html" >İnceleme</a>
+                <a href="iletişim.html" >İletişim</a>
+                <a href="bloglar.html" >Bloglar</a>
+            </div>
+
+            <div class="yaratıcı">
+                MYP <span>Tarafından Oluşturuldu</span> | Tüm Hakları Gizlidir.
+            </div>
+
+
+             </section>
+
+
+             <!-- altbilgi bölümü bitişi -->
+
+             <script src="script/myp javascript.js"></script>
+
+
+</body>
+</html>

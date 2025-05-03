@@ -1,0 +1,29 @@
+# PHP
+*.log
+*.cache
+/vendor/
+
+# SQL
+*.db
+*.sql
+*.sqlite
+
+# HTML/CSS/JS
+*.log
+*.sass-cache/
+*.tmp/
+
+# Node.js (Eğer npm/yarn kullanıyorsanız)
+node_modules/
+
+# JetBrains IDE'leri (PhpStorm, WebStorm, vb.)
+.idea/
+
+# VSCode (eğer kullanıyorsanız)
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db

@@ -1,0 +1,869 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,100&display=swap');  /* Google fontslardan poppins yazı tipinde birkaz kalınlıkta yazı seçtim ve bu link yazılar için */
+
+*:root{ /* Site içi renkler, menülerin, butonların ve scrollerin renklerini ayarlıyoruz */
+    --main-color: #bda20b;
+    --black-color: #000000dc;
+    --border: 0.1rem solid rgba(255, 255, 255, 0.4) /* 1 rem 16 pixeldir. */
+}
+
+*{ /* Yıldız tüm html etiketlerine ulaşmamamızı sağlar */
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize; /* Sadece ilk harfler büyük */
+    transition: 0.2s ease; /* geçiş süresi mesele menüyü açtığımızdaki açılma süresi */
+}
+
+/* Temel html kodları */
+html{
+    font-size: 63.5%;  /* convert tpx to rem sitesi pixelleri remlere dönüştürmeyi sağlar */
+    overflow-x: hidden;  /* yatay scrollu gizler */
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar{
+    width: 0.8rem;
+    background-color:white;
+
+}
+
+html::-webkit-scrollbar-track{  /*scrolbarın boş alandaki rengini ayarlar*/ 
+    background-color: transparent;
+
+}
+
+html::-webkit-scrollbar-thumb{  /* aşağı-yukarı scrolbarı düzenledik */
+    border-radius: 3rem; 
+    background-color:var(--black-color);
+
+}
+
+body{
+    background-color: var(--main-color);
+}
+
+section{
+    padding: 3.5rem 7%;
+}
+
+a{
+    color: var(--black-color);
+    text-decoration: none;
+
+    
+}
+
+
+.btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 2rem 3.75rem ;
+    border-radius: 30rem;
+    font-size: 1.8rem;
+    color: #fff;
+    background-color: var(--black-color);
+    cursor: pointer;
+}
+
+.heading{
+    color: #fff;
+    text-transform: uppercase; 
+    font-size: 4rem;
+    margin-bottom: 3.5rem;
+    border-bottom: 0.1rem solid #fff;
+}
+
+.heading span{
+    color: var(--black-color);
+    text-transform: uppercase; 
+}
+
+.arama-girişi{
+    font-size: 1.6rem;
+    color: var(--black-color);
+    padding: 1rem;
+    text-transform: none;
+    border-radius: 3rem;
+}
+#menu-btn {
+    display: none;
+}
+
+/* Başlık başlangıcı */
+.header .search-form{
+    position: absolute;
+    top: 115%;
+    right: 7%;
+    background-color: #fff;
+    width: 50rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-radius: 3rem;
+    box-shadow: 0px 0px 25px 2px rgba(223, 5, 5, 0.75);
+    transform: scaleY(0);
+}
+
+.header .search-form.active{
+    transform: scaleY(1);
+}
+
+.header .search-form i{
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black-color);
+}
+
+.header .search-form input{
+    width: 100%;
+}
+
+
+
+.header .logo img {
+    height: 10rem;
+}
+
+.header {  /* site içindei iconları yazıları vesaire hizalama işlemi için */
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    margin: 2rem 7%;
+    border-radius: 30rem; 
+    box-shadow: 0px 0px 17px -2px rgba(0, 0, 0, 0.85);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header .navbar a{
+    margin: 0 1rem;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    border-bottom: 0.1rem solid transparent;
+
+}
+
+.header .navbar .active,
+.header .navbar a:hover{
+    border-color: var(--main-color);
+    padding-bottom: 0,5rem;
+ 
+}
+.header .buttons button{
+    cursor: pointer;
+    font-size: 2.5rem;
+    margin-left: 2rem;
+    background-color: transparent;
+}
+
+.header .cart-items-container{
+    position: absolute;
+    top: 95%;
+    height: calc(100vh - 9rem);
+    width: 35rem;
+    background-color: #fff;
+    box-shadow: 0px 20px 14px 0px rgb(0 0 0 / 75%);
+    right: -100%;
+}
+
+.header .cart-items-container.active{  /* Burada container.active arasında boşluk olmaması lazım çünkü aynı class içinde*/
+    right: 3rem;
+}
+
+.header .cart-items-container .cart-item{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.header .cart-items-container .cart-item:hover{
+    box-shadow: 0px 20px 14px 0px rgba(0, 0, 0, 0.75);  /* Sepetteki ürünün üzerüne gelindiğinde gölge çıkacak ve belirginleşecek */
+}
+
+.header .cart-items-container .cart-item .fa-xmark{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--black-color);
+
+}
+
+.header .cart-items-container .cart-item img{
+    height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+    font-size: 2rem;
+    color: var(--black-color);
+    padding: 0.5rem;
+}
+
+.header .cart-items-container .cart-item .content .fiyat{
+    font-size: 1.5rem;
+    color: var(--black-color);
+}
+
+
+.header .cart-items-container .btn{  /* Buttonun düz olmasını sağladım */
+    width: 100%;
+    text-align: center;
+    border-radius: unset;
+}
+
+
+
+
+
+/* Başlık bitişi */
+
+
+/* Anasayfa başlangıç */
+#videodur video{
+    height: 150vh;
+    width: 250%;
+    background-position: absolute;
+    z-index: 10;
+    object-fit: cover;
+}
+.anasayfa{
+    margin: 0;
+    padding: 0;
+    background-clip: no-repeat;
+    margin-top: -14.5rem;
+    display: flex;
+    align-items: center;
+
+
+    
+}
+
+
+
+.anasayfa .content{
+    max-width: 60rem;
+}
+
+.anasayfa .content h3{
+    font-size: 6rem;
+    color: #fff;
+
+}
+
+.anasayfa .content p{
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #ccc;
+
+
+}
+
+
+/* Anasayfa bitiş */
+
+/* Menü başlangıç */
+
+
+.menu .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));  /* Yan yana konumlandirma için */
+    gap: 1.5rem;
+}
+.menu .box-container .box{
+    padding: 3rem;
+    background-color: #fff;
+    border-radius: 3rem;
+    background-color: #fff;
+    min-height: 60rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+    
+.menu .box-container .box img{
+    width: 100%;
+    object-fit: cover;
+
+
+}
+
+.menu .box-container .box:hover img{
+    scale: 1.2;
+
+}
+
+.menu .box-container .box .ürünler-kategori{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+
+}
+
+.menu .box-container .box h3{
+    font-size: 3rem;
+    padding: 1rem 0;
+
+}
+
+.menu .box-container .box .fiyat {
+    font-size: 2.5rem;
+    padding: 0.5rem 0;
+
+
+}
+
+.menu .box-container .box .fiyat span{
+    font-size: 1.5rem;
+    text-decoration: line-through;
+    font-weight: 300;
+}
+
+
+
+/* Menü bitiş */
+
+/* Ürünler başlangıç */
+.ürünler .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));  /* Yan yana konumlandirma için */
+    gap: 1.5rem;
+
+}
+
+.ürünler .box-container .box{
+    text-align: center;
+    background-color: #fff;
+    position: relative;
+    border-radius: 3rem;
+    height: 60rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 3rem;
+
+}
+
+.ürünler .box-container .box .box-head{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 10;
+}
+
+.ürünler .box-container .box .box-head .title{
+    font-size: 1.4rem;
+}
+
+.ürünler .box-container .box .box-head .isim{
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: start;
+    overflow-wrap: anywhere; /* Yazının taşmaması için */
+}
+
+.ürünler .box-container .dark-bg .box-head .isim,
+.ürünler .box-container .dark-bg .box-head .tittle{
+    color: #fff;
+}
+
+
+.ürünler .box-container img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    border-radius: 3rem;
+
+}
+
+
+
+.ürünler .box-container .dark-bg img{    /* tam siğmayan ürünlerin boyutunu ayarlar */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: unset;
+}
+
+.ürünler .box-container .box:hover img{
+    scale: 1.2;
+}
+
+
+.ürünler .box-container .box-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+
+    
+}
+
+.ürünler .box-container .box-bottom .info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ürünler .box-container .box-bottom .info .fiyat {
+    font-size: 3rem;
+
+}
+
+.ürünler .box-container .box-bottom .info .amount{
+    font-size: 1.4rem;
+}
+
+.ürünler .box-container .dark-bg .box-bottom .info .fiyat,
+.ürünler .box-container .dark-bg .box-bottom .info .amount{
+    color: #fff;
+}
+
+.ürünler .box-container .box-bottom .product-btn a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 6.5rem;
+    height: 6.5rem;
+    border: 0.2rem solid var(--main-color);
+
+}
+
+.ürünler .box-container .box-bottom .product-btn a i{
+    font-size: 1.6rem;
+    
+}
+
+
+/* Ürünler bitiş */
+
+/* Hakkımızda başlangıç */
+.hakkımızda .row{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+
+}
+
+
+.hakkımızda .row .resim{
+    flex: 1 1 45rem;
+
+}
+
+.hakkımızda .row img{
+    width: 100%;
+
+}
+
+.hakkımızda .row .content{
+    flex: 1 1 45rem;
+}
+
+.hakkımızda .row .content h3{
+    font-size: 3rem;
+    color: #fff;
+}
+
+.hakkımızda .row .content p{
+    font-size: 1.6rem;
+    color: #fff;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+
+
+
+
+/* Hakkımızda bitiş */
+
+/* Yorumlar başlangıç */
+
+ .yorum .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));  /* Yan yana konumlandirma için */
+    gap: 1.5rem;
+}
+
+.yorum .box-container .box{  /* box-container içinde ne kadar box varsa hepsine bu özelliği verdik */
+    border: var(--border);   /* Eğer Sadece sondaki kutucuğa bu değerleri vermek istiyorsak .box:last-child yazabiliriz.
+     eğer sadece baştaki için ise firs kullanırız last yerine */
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #fff;
+    border-radius: 3rem;
+
+}
+
+.yorum .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    padding: 2rem 0;
+}
+
+.yorum .box-container .box .kullanıcı{  /* kullanıcı profil fotoğraflarını küçültmek için */
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.yorum .box-container .box .çifttırnak{
+    height: 30rem;
+    width: 30rem;
+    border-radius: 50%;
+    object-fit: cover;
+
+}
+
+.yorum .box-container .box h3{
+    padding: 1rem 0;
+    font-size: 2rem;
+    color: var(--main-color);
+
+    
+}
+
+.yorum .box-container .box .yıldızlar i{ /* Yıldızların rengini ve boyutunu ayarladım */
+    font-size: 1.5rem;
+    color: gold;
+}
+
+
+/* Yorumlar bitiş */
+
+/* İletişim Bölümü başlangıç */
+.iletişim .row{
+    display: flex;
+    background-color: var(--black-color);
+    flex-wrap: wrap;
+    gap: 1rem;    
+
+}
+.iletişim .row .harita{
+    flex: 1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.iletişim .row form{
+    flex: 1 1 45rem;
+    padding: 5rem 2rem;
+    text-align: center;
+    
+}
+
+.iletişim .row form h3{
+    text-transform: uppercase;
+    font-size: 3.5rem;
+    color: #fff;
+
+}
+
+.iletişim .row form .inputBox{
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    border: var(--border);
+    
+}
+
+.iletişim .row form .inputBox i{
+    color: #fff;
+    font-size: 2rem;
+    padding-left: 2rem;
+}
+
+.iletişim .row form .inputBox input{
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.7rem;
+    color: #fff;
+    text-transform: none;
+    background-color: transparent;
+}
+
+.iletişim .row form .btn{
+    color: var(--main-color);
+    background-color: #fff;
+    font-weight: bold;
+    
+}
+
+
+
+
+
+/* İletişim Bölümü bitiş */
+
+/* Bloglar Bölümü başlangıcı */
+.bloglar .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));  /* Yan yana konumlandirma için */
+    gap: 1.5rem;
+
+
+}
+
+.bloglar .box-container .box{
+    background-color: #fff;
+    border-radius: 3rem;
+
+}
+
+.bloglar .box-container .box .image{
+    height: 50rem;
+    overflow: hidden;
+    width: 100%;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem;
+}
+
+.bloglar .box-container .box .image img{
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.bloglar .box-container .box:hover .image img{
+    scale: 1.2;
+}
+
+.bloglar .box-container .box .content{
+    padding: 2rem;
+    
+}
+
+.bloglar .box-container .box .content .tittle{
+    line-height: 1.5;
+    font-size: 2.5rem;
+    
+ }
+
+.bloglar .box-container .box .content span{
+   display: block;
+   padding-top: 1rem;
+   font-size: 2rem;
+   
+}
+
+.bloglar .box-container .box .content p{
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: #000;
+    padding: 1rem;
+    
+ }
+/* Bloglar Bölümü bitiş */
+
+/* alt bilgi Bölümü başlangıcı */
+.altbilgi{
+    background-color: var(--black-color);
+    text-align: center;
+}
+
+.altbilgi .arama{
+    display: flex;
+    justify-content: center;
+}
+
+.altbilgi .arama .arama-girişi{
+    width: 30rem;
+}
+
+.altbilgi .arama .btn-birincil{
+    background-color: var(--main-color);
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+}
+
+.altbilgi .sosyal-medya{
+    padding: 2rem;
+}
+
+.altbilgi .sosyal-medya a{
+    width: 5rem;
+    height: 5rem;
+    line-height: 5rem; 
+    color: #fff;
+    font-size: 2rem;
+    border: var(--border);
+    border-radius: 50%;
+    margin: 0.3rem;   
+}
+
+.altbilgi .sosyal-medya a:hover{
+    background-color: var(--main-color);
+}
+
+.altbilgi .linkler{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* küçüldüğünde taşarsa alta atacak */
+    gap: 1rem;
+    
+}
+
+.altbilgi .linkler a{
+    background-color: var(--main-color);
+    padding: 0.7rem 2rem;
+    color: #fff;
+    font-size: 2rem;
+    border: var(--border);
+}
+
+.altbilgi .linkler a:hover{
+    background-color: var(--black-color);
+    opacity: 0.7;
+}
+
+.altbilgi .linkler a.active{
+    background-color: var(--black-color);
+}
+
+.altbilgi .yaratıcı{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 300;
+    padding: 1.5rem;
+}
+
+.altbilgi .yaratıcı span{
+    color: var(--main-color);
+}
+
+
+
+
+/* alt bilgi Bölümü bitiş */
+
+/* responsive Bölümü başlangıcı */
+@media (max-width: 991px){   /* sayfayı küçülttüğümüzde daha düzgün ve duayarlı olasını sağlar */
+    html{
+        font-size: 55%;
+
+    }
+    .header{
+        padding: 1.5rem 2rem;
+    }
+    .header .logo img{  /* küçültüğümüzde logonun boyutu 70px e düşecek */
+        height: 7rem;
+        
+    }
+    section{
+        padding: 2rem;
+    }
+    .ürünler .box-container .box .box-head .isim{
+        font-size: 3.4rem;
+    }
+}
+
+@media (max-width: 768px){
+    .header #menu-btn{
+    display: inline-block;
+    }
+
+    .header .navbar{
+        position: absolute;
+        top: 95%;
+        background-color: #fff;
+        height: calc(100vh - 9rem);
+        width: 30rem;
+        box-shadow: 0px 20px 14px 0px rgba(0 0 0 / 75%);
+        right: -100%;
+    }
+
+     .header .navbar .active{
+        right: 3rem;
+    }
+
+    .header .navbar a{
+        color: var(--black-color);
+        display: block;
+        margin: 1.5rem;
+        padding: 0.5rem;
+        font-size: 2rem;
+    }
+    
+
+}
+
+@media (max-width: 576px){
+    html{
+        font-size: 50%;
+    }
+}
+/* responsive Bölümü bitiş */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #000;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#checkout-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#checkout-btn:hover {
+    background-color: #45a049;
+}

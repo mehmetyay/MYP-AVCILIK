@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    <!-- iconları online olduğu zaman kullanabiliriz -->
+    <title>Ürünler</title>
+    
+<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <!-- header bölümü başlangıcı -->
+   
+
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="logo ve resimler/myp avcılık logo.jpeg" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <a href="indexavcı.html" class="active">Ana Sayfa</a>
+            <a href="hakkımızda.html" >Hakkımızda</a>
+            <div class="dropdown">
+                <button class="dropbtn">Katagoriler</button>
+                <div class="dropdown-content">
+                    <a href="Av Bıçakları.html" >Av Bıçakları</a>
+                    <a href="Aksesuarlar.html" >Aksesuarlar</a>
+                    <a href="Tabancalar.html" >Tabancalar</a>
+                    <a href="Eldivenler.html" >Eldivenler</a>
+                    <a href="Çantalar.html" >Çantalar</a>
+                    <a href="Dürbünler.html" >Dürbünler</a>
+                    <a href="Av Tüfekleri.html" >Av Tüfekleri</a>
+                </div>
+            <a href="inceleme.html" >İnceleme</a>
+            <a href="iletişim.html" >İletişim</a>
+            <a href="bloglar.html" >Bloglar</a>
+        </nav>
+
+        <div class="buttons">
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>  <!-- arama iconu -->
+            </button>
+
+            <button id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>   <!-- market iconu -->
+            </button>
+
+            <button id="menu-btn">
+                <i class="fa-solid fa-bars"></i>     <!-- bar iconu -->
+            </button>
+        </button>
+        <button id="user-btn">
+            <i class="fa-solid fa-credit-card"></i>
+        </button>
+        </div>
+
+        <div class="search-form">
+            <input type="text" class="arama-girişi" id="search-box" placeholder="Ürünü Ara">
+            <i class="fa-solid fa-magnifying-glass"> </i>
+        </div>
+        <div class="cart-items-container">  <!-- sepet içerkleri -->
+            <div class="cart-item">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <button id="checkout-btn" style="display: none;" class="btn">Ödemeye Geç</button>
+        </div>
+        <div id="sepet-container">
+            <!-- Sepetteki ürünler burada gösterilecek -->
+        </div>
+        <input type="hidden" id="sepet-verisi" name="sepet" value="">
+        
+
+    </header>
+    <!-- header bölümü bitişi -->
+
+ <!-- Ürünler bölümü başlangıcı -->
+ <section class="ürünler" id="ürünler">
+    <h1 class="heading">AV <span>Bıçakları</span></h1>
+    <div class="box-container">
+        
+        <div class="box dark-bg">
+        <div class="box">
+            <div class="box-head">
+                <span class="tittle">Av Bıçakları</span>
+                <a href="bıcaklar3.html" class="isim">Virabıçak Zoka</a>
+            </div>
+            <div class="image">
+                <img src="avcılıkürün/av bıçakları/111.png" alt="" />
+            </div>
+            <div class="box-bottom">
+                <div class="info">
+                    <b class="fiyat">790₺</b>
+                </div>
+                <div class="product-btn">
+                    <a href="#" onclick="urunEkle('1', 'Virabıçak Zoka', 790)">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="box dark-bg">
+        <div class="box">
+            <div class="box-head">
+                <span class="tittle">Av Bıçakları</span>
+                <a href="bıcaklar2.html" class="isim">Verd Falcon</a>
+            </div>
+            <div class="image">
+                <img src="avcılıkürün/av bıçakları/11.png" alt="" />
+            </div>
+            <div class="box-bottom">
+                <div class="info">
+                    <b class="fiyat">698₺</b>
+                </div>
+                <div class="product-btn">
+                    <a href="#" onclick="urunEkle('2', 'Verd Falcon', 698)">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="box dark-bg">
+            <div class="box-head">
+                <span class="tittle">Av Bıçağı</span>
+                <a href="bıcaklar1.html" class="isim">Verd Hançer</a>
+            </div>
+            <div class="image">
+                <img src="logo ve resimler/bıçak.png" alt="" />
+            </div>
+            <div class="box-bottom">
+                <div class="info">
+                    <b class="fiyat">499₺</b>
+                    <span class="amount">Epoxy özel seri</span>
+                </div>
+                <div class="product-btn">
+                    <a href="#" onclick="urunEkle('3', 'Verd Hançer', 499)">
+                        <i class="fa-solid fa-plus"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+   <!-- Ürünler bölümü bitişi -->
+
+            <!-- altbilgi bölümü başlangıcı -->
+             <section class="altbilgi">
+                <div class="arama">
+                    <input type="text" class="arama-girişi" placeholder="Arama">
+                    <button class="btn btn-birincil">Arama</button>
+                </div>
+                <div class="sosyal-medya">
+                    <a href="https://facebook.com/furkanakdal" target="_blank" class="fa-brands fa-facebook"></a>
+                    <a href="https://twitter.com/mypavcilik" target="_blank" class="fa-brands fa-twitter"></a>
+                    <a href="https://www.instagram.com/mypavcilik/" target="_blank" class="fa-brands fa-instagram"></a>
+                    <a href="https://www.linkedin.com/in/myp-avcilik-59b925334/" target="_blank" class="fa-brands fa-linkedin"></a>
+                    <a href="https://tr.pinterest.com/mypavcilik/" target="_blank" class="fa-brands fa-pinterest"></a>
+                </div>
+
+                <div class="linkler">
+                    <a href="indexavcı.html" class="active">Ana Sayfa</a>
+                <a href="hakkımızda.html" >Hakkımızda</a>
+                <a href="menu.html" >Menü</a>
+                <a href="ürünler.html" >Ürünler</a>
+                <a href="inceleme.html" >İnceleme</a>
+                <a href="iletişim.html" >İletişim</a>
+                <a href="bloglar.html" >Bloglar</a>
+            </div>
+
+            <div class="yaratıcı">
+                MYP <span>Tarafından Oluşturuldu</span> |Tüm Hakları Gizlidir.
+            </div>
+
+
+             </section>
+
+
+             <!-- altbilgi bölümü bitişi -->
+
+             <script src="script/myp javascript.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

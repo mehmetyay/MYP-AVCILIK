@@ -1,0 +1,194 @@
+<?php
+// Veritabanı bağlantısı
+$servername = "localhost"; // Sunucu adı
+$username = "root"; // PHPMyAdmin kullanıcı adı
+$password = ""; // PHPMyAdmin şifre
+$dbname = "iletisim"; // Veritabanı adı
+
+// Bağlantıyı oluştur
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Bağlantıyı kontrol et
+if ($conn->connect_error) {
+    die("Bağlantı hatası: " . $conn->connect_error);
+}
+
+// Form verilerini al
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $isim = $conn->real_escape_string($_POST['isim']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $telefon = $conn->real_escape_string($_POST['telefon']);
+
+    // Veritabanına ekle
+    $sql = "INSERT INTO iletisim_bilgileri (isim, email, telefon) VALUES ('$isim', '$email', '$telefon')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "İletişim bilgileriniz başarıyla kaydedildi!";
+    } else {
+        echo "Hata: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Bağlantıyı kapat
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    <!-- iconları online olduğu zaman kullanabiliriz -->
+    <title>Bize Ulaşın</title>
+    
+<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <!-- header bölümü başlangıcı -->
+   
+
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="logo ve resimler/myp avcılık logo.jpeg" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <a href="indexavcı.html" class="active">Ana Sayfa</a>
+            <a href="hakkımızda.html" >Hakkımızda</a>
+            <div class="dropdown">
+                <button class="dropbtn">Katagoriler</button>
+                <div class="dropdown-content">
+                    <a href="Av Bıçakları.html" target="_blank">Av Bıçakları</a>
+                    <a href="Aksesuarlar.html" target="_blank">Aksesuarlar</a>
+                    <a href="Tabancalar.html" target="_blank">Tabancalar</a>
+                    <a href="Eldivenler.html" target="_blank">Eldivenler</a>
+                    <a href="Çantalar.html" target="_blank">Çantalar</a>
+                    <a href="Dürbünler.html" target="_blank">Dürbünler</a>
+                    <a href="Av Tüfekleri.html" target="_blank">Av Tüfekleri</a>
+                </div>
+            </div>
+            
+            <a href="inceleme.html" >İnceleme</a>
+            <a href="iletişim.html" >İletişim</a>
+            <a href="bloglar.html" >Bloglar</a>
+        </nav>
+
+        <div class="buttons">
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>  <!-- arama iconu -->
+            </button>
+
+            <button id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>   <!-- market iconu -->
+            </button>
+
+            <button id="menu-btn">
+                <i class="fa-solid fa-bars"></i>     <!-- bar iconu -->
+            </button>
+        </button>
+        <button id="user-btn">
+            <i class="fa-solid fa-user"></i>
+        </button>
+        </div>
+
+        <div class="search-form">
+            <input type="text" class="arama-girişi" id="search-box" placeholder="Ürünü Ara">
+            <i class="fa-solid fa-magnifying-glass"> </i>
+        </div>
+        <div class="cart-items-container">  <!-- sepet içerkleri -->
+            <div class="cart-item">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <button id="checkout-btn" style="display: none;" class="btn">Ödemeye Geç</button>
+        </div>
+        <div id="sepet-container">
+            <!-- Sepetteki ürünler burada gösterilecek -->
+        </div>
+        <input type="hidden" id="sepet-verisi" name="sepet" value="">
+        
+
+    </header>
+    <!-- header bölümü bitişi -->
+
+  <!-- İletişim bölümü başlangıcı -->
+  <section class="iletişim" id="iletişim">
+    <h1 class="heading">Bize <span>Ulaşın</span></h1>
+    <div class="row">
+        <iframe class="harita" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.028183505759!2d39.7719711764297!3d38.2556523843136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4074488c4cd6245f%3A0xbd278c96c84bb294!2sDicle%20%C3%9Cniversitesi%20Ergani%20Meslek%20Y%C3%BCksekokulu!5e0!3m2!1str!2str!4v1729022324477!5m2!1str!2str"
+           loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <form action="iletisim.php" method="POST">
+            <h3>İletişime Geç</h3>
+            <div class="inputBox">
+                <i class="fa-solid fa-user"></i>
+                <input type="text" name="isim" placeholder="İsim" required>
+            </div>
+        
+            <div class="inputBox">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email" name="email" placeholder="E-Mail" required>
+            </div>
+        
+            <div class="inputBox">
+                <i class="fa-solid fa-phone"></i>
+                <input type="text" name="telefon" placeholder="Telefon No" required>
+            </div>
+            <input type="submit" class="btn" value="Şimdi İletişime Geç">
+        </form>
+        
+        </div>
+
+
+
+
+  </section>
+
+
+
+  <!-- İletişim bölümü bitişi -->
+            <!-- altbilgi bölümü başlangıcı -->
+             <section class="altbilgi">
+                <div class="arama">
+                    <input type="text" class="arama-girişi" placeholder="Arama">
+                    <button class="btn btn-birincil">Arama</button>
+                </div>
+                <div class="sosyal-medya">
+                    <a href="#" class="fa-brands fa-facebook"></a>
+                    <a href="#" class="fa-brands fa-twitter"></a>
+                    <a href="#" class="fa-brands fa-instagram"></a>
+                    <a href="#" class="fa-brands fa-linkedin"></a>
+                    <a href="#" class="fa-brands fa-pinterest"></a>
+                </div>
+
+                <div class="linkler">
+                    <a href="indexavcı.html" class="active">Ana Sayfa</a>
+                    <a href="hakkımızda.html" >Hakkımızda</a>
+                    <a href="menu.html" >Menü</a>
+                    <a href="ürünler.html" >Ürünler</a>
+                    <a href="inceleme.html" >İnceleme</a>
+                    <a href="iletişim.html" >İletişim</a>
+                    <a href="bloglar.html" >Bloglar</a>
+            </div>
+
+            <div class="yaratıcı">
+                MYP <span>Tarafından Oluşturuldu</span> |Tüm Hakları Gizlidir.
+            </div>
+
+
+             </section>
+
+
+             <!-- altbilgi bölümü bitişi -->
+
+             <script src="script/myp javascript.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Ürün Sayfası</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .product-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .product-images {
+            position: relative;
+            width: 50%;
+        }
+
+        .product-images img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .product-images img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-images .arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .product-images .arrows button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .product-details {
+            width: 50%;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .product-details h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .product-details p {
+            margin: 10px 0;
+        }
+
+        .product-details .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        .product-details button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .product-details button:hover {
+            background-color: #0056b3;
+        }
+
+        .similar-products {
+            margin-top: 40px;
+        }
+
+        .similar-products h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .similar-products .product-list {
+            display: flex;
+            gap: 20px;
+        }
+
+        .similar-products .product {
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .similar-products .product img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .similar-products .product:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="logo ve resimler/myp avcılık logo.jpeg" alt="Logo">
+        </a>
+        <nav class="navbar">
+            <a href="indexavcı.html" class="active">Ana Sayfa</a>
+            <a href="hakkımızda.html" >Hakkımızda</a>
+            <div class="dropdown">
+                <button class="dropbtn">Katagoriler</button>
+                <div class="dropdown-content">
+                    <a href="Av Bıçakları.html" target="_blank">Av Bıçakları</a>
+                    <a href="Aksesuarlar.html" target="_blank">Aksesuarlar</a>
+                    <a href="Tabancalar.html" target="_blank">Tabancalar</a>
+                    <a href="Eldivenler.html" target="_blank">Eldivenler</a>
+                    <a href="Çantalar.html" target="_blank">Çantalar</a>
+                    <a href="Dürbünler.html" target="_blank">Dürbünler</a>
+                    <a href="Av Tüfekleri.html" target="_blank">Av Tüfekleri</a>
+                </div>
+            </div>
+            
+            <a href="inceleme.html" >İnceleme</a>
+            <a href="iletişim.html" >İletişim</a>
+            <a href="bloglar.html" >Bloglar</a>
+        </nav>
+
+        <div class="buttons">
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>  <!-- arama iconu -->
+            </button>
+
+            <button id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>   <!-- market iconu -->
+            </button>
+
+            <button id="menu-btn">
+                <i class="fa-solid fa-bars"></i>     <!-- bar iconu -->
+            </button>
+            <button id="user-btn">
+                <i class="fa-solid fa-credit-card"></i>
+            </button>
+        </div>
+
+        <div class="search-form">
+            <input type="text" class="arama-girişi" id="search-box" placeholder="Ürünü Ara">
+            <i class="fa-solid fa-magnifying-glass"> </i>
+        </div>
+        <div class="cart-items-container">  <!-- sepet içerkleri -->
+            <div class="cart-item">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+                <button id="checkout-btn" style="display: none;" class="btn">Ödemeye Geç</button>
+            </div>
+
+    </header>
+    <div class="product-container">
+        <!-- Product Images Section -->
+        <div class="product-images">
+            <img id="currentImage" src="avcılıkürün/eldivenler/jjj.jpg" alt="Ürün Görseli">
+            <div class="arrows">
+                <button onclick="prevImage()">&#8592;</button>
+                <button onclick="nextImage()">&#8594;</button>
+            </div>
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="product-details">
+            <h1>MECHANIX WEAR </h1>
+            <p class="price">1.450 TL</p>
+            <p>Ürün Özellikleri:</p>
+            <p>%94 polyamid / %6 elastan
+                Nefes alabilen TrekDry® kumaştan üretilmiştir
+                Hareket özgürlüğünü kısıtlamaz
+                Dayanıklı ve konforludur
+                Dokunmatik ekranlarla uyumludur</p>
+            <button>Sepete Ekle</button>
+            <button id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>   <!-- market iconu -->
+            </button>
+            <i class="fa-solid fa-plus"></i>
+            <input type="int">
+            <i class="fa-solid fa-minus"></i>
+        </div>
+    </div>
+
+    <!-- Similar Products Section -->
+    <div class="similar-products">
+        <h2>Benzer Ürünler</h2>
+        <div class="product-list">
+            <div class="product"><a href="eldivenler1.html">
+                <img src="avcılıkürün/eldivenler/aaa.jpg" alt="Benzer Ürün 1">
+                <p>Benzer Ürün 1</p></a>
+            </div>
+            <div class="product"><a href="eldivenler2.html">
+                <img src="avcılıkürün/eldivenler/zzz.jpg" alt="Benzer Ürün 2">
+                <p>Benzer Ürün 2</p></a>
+            </div>
+           
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const images = [
+            'avcılıkürün/eldivenler/jjj.jpg',
+            'avcılıkürün/eldivenler/kkk.jpg',
+            'avcılıkürün/eldivenler/jjj.jpg'
+        ];
+
+        let currentIndex = 0;
+
+        function showImage(index) {
+            const currentImage = document.getElementById('currentImage');
+            currentImage.style.opacity = 0;
+
+            setTimeout(() => {
+                currentImage.src = images[index];
+                currentImage.style.opacity = 1;
+            }, 300);
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            showImage(currentIndex);
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            showImage(currentIndex);
+        }
+    </script>
+    <script src="script/myp javascript.js"></script>
+</body>
+</html>

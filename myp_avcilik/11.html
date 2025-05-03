@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/Untitled-1.css">
+    <title>Ludiflex | Login & Registration</title>
+</head>
+<body>
+    <section class="banner">
+        <a href="#" class="logo">
+            <img src="logo ve resimler/myp avcılık logo.jpeg" alt="Logo" class="logo-img">
+        </a>
+        <nav class="nav-menu">
+            <a href="indexavcı.html" class="active">Ana Sayfa</a>
+        <a href="hakkımızda.html" >Hakkımızda</a>
+        <a href="menu.html" >Menü</a>
+        <a href="ürünler.html" >Ürünler</a>
+        <a href="inceleme.html" >İnceleme</a>
+        <a href="iletişim.html" >İletişim</a>
+        <a href="bloglar.html" >Bloglar</a>
+        </nav>
+        <div class="buttons">
+            <button id="search-btn">
+                <i class="fa-solid fa-magnifying-glass"></i>  <!-- arama iconu -->
+            </button>
+
+            <button id="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>   <!-- market iconu -->
+            </button>
+
+            <button id="menu-btn">
+                <i class="fa-solid fa-bars"></i>     <!-- bar iconu -->
+            </button>
+            <button id="user-btn">
+                <i class="fa-solid fa-user"></i>
+            </button>
+        </div>
+        <div class="search-form">
+            <input type="text" class="arama-girişi" id="search-box" placeholder="Ürünü Ara">
+            <i class="fa-solid fa-magnifying-glass"> </i>
+        </div>
+</section>
+
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <header class="header">
+              
+            </div>
+            
+                
+            </nav>
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Giriş Yap</button>
+                <button class="btn" id="registerBtn" onclick="register()">Kayıt Ol</button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunction()"></i>
+            </div>
+        </nav>
+    </header>
+
+<!----------------------------- form kutusu ----------------------------------->    
+    <div class="form-box">
+        
+        <!------------------- giriş ekranı -------------------------->
+
+        <div class="login-container" id="login">
+            <div class="top">
+                <span>Hesabınız yok mu? <a href="#" onclick="register()">üye ol.</a></span>
+                <header>Giriş yap</header>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="İsim Veya Eposta">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Şifre">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Giriş Yap">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check"> Beni Hatırla.</label>
+                </div>
+                <div class="two">
+                    <label><a href="#">Şifremi unuttum.</a></label>
+                </div>
+            </div>
+        </div>
+
+        <!------------------- kayıt olma yeri -------------------------->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Hesabın var mı? <a href="#" onclick="login()">Giriş Yap</a></span>
+                <header>Üye ol</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="İsim">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Soy İsim">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="E-Posta">
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Şifre">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Kayıt ol">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Beni Hatırla</label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>   
+
+
+<script>
+   
+   function myMenuFunction() {
+    var i = document.getElementById("navMenu");
+
+    if(i.className === "nav-menu") {
+        i.className += " responsive";
+    } else {
+        i.className = "nav-menu";
+    }
+   }
+ 
+</script>
+
+<script>
+
+    var a = document.getElementById("loginBtn");
+    var b = document.getElementById("registerBtn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+
+    function login() {
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        a.className += " white-btn";
+        b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+    }
+
+    function register() {
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        a.className = "btn";
+        b.className += " white-btn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+
+</script>
+
+</body>
+</html>
